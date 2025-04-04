@@ -513,7 +513,7 @@ zoom = Vector2(3, 3)
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 script = ExtResource("5_r7coc")
 
-[node name="keys" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [node name="FINAl" type="Node2D" parent="."]
 
@@ -551,5 +551,3 @@ libraries = {
 autoplay = "war"
 
 [node name="lights" type="Node2D" parent="."]
-
-[node name="final" type="AudioStreamPlayer2D" parent="."]

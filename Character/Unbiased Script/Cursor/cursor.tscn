@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://tpa78h24jsrh"]
+
+[ext_resource type="Script" uid="uid://ctxkkugo55m6e" path="res://Character/Unbiased Script/cursor.gd" id="1_6qf7j"]
+[ext_resource type="Texture2D" uid="uid://tikfjyy1no5y" path="res://Asset/light/512x512 textures (12).png" id="2_1us4l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6qf7j"]
+
+[node name="Cursor" type="Node2D"]
+script = ExtResource("1_6qf7j")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.054, 0.054)
+energy = 5.0
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = ExtResource("2_1us4l")
+texture_scale = 11.51
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+scale = Vector2(7.6686, 7.6686)
+shape = SubResource("CircleShape2D_6qf7j")

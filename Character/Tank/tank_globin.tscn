@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://df1hhpq2eex31"]
 
-[ext_resource type="Texture2D" uid="uid://dgof7e7tph81m" path="res://Asset/Mech/Goblin Mech Rider Sprite Sheet.png" id="1_xhaym"]
+[ext_resource type="Script" uid="uid://dc2hsvnppls8n" path="res://Character/Tank/tank_globin.gd" id="1_sf8vv"]
 [ext_resource type="Texture2D" uid="uid://dxxx2kbijsrqf" path="res://Asset/GoblinPack/GoblinTank-Sheet.png" id="2_xhaym"]
 [ext_resource type="Script" uid="uid://d0hed5y86pubx" path="res://Character/Tank/colour.gd" id="3_sf8vv"]
 
@@ -83,6 +83,7 @@ _data = {
 }
 
 [node name="tank_globin" type="CharacterBody2D" groups=["archer", "globin"]]
+script = ExtResource("1_sf8vv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -2)
@@ -94,15 +95,6 @@ root_node = NodePath("../sprite")
 libraries = {
 &"": SubResource("AnimationLibrary_euwvw")
 }
-
-[node name="ref" type="Sprite2D" parent="."]
-visible = false
-texture_filter = 1
-position = Vector2(62, -49)
-texture = ExtResource("1_xhaym")
-hframes = 8
-vframes = 5
-frame = 1
 
 [node name="sprite" type="Sprite2D" parent="."]
 texture_filter = 1

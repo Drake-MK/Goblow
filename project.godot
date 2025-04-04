@@ -12,7 +12,6 @@ config_version=5
 
 config/name="Goblow"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 
 [global_group]
@@ -26,4 +25,5 @@ archer=""
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+viewport/hdr_2d=true
+environment/bg_color=Color(0.14, 0.14, 0.14, 1)
