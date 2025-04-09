@@ -1,6 +1,5 @@
 [gd_scene load_steps=10 format=3 uid="uid://sjgaef1xnf3n"]
 
-[ext_resource type="PackedScene" uid="uid://cky0dk1umvpto" path="res://Shadow_Generator/shadow_body.tscn" id="1_0akgs"]
 [ext_resource type="Texture2D" uid="uid://dgof7e7tph81m" path="res://Asset/Mech/Goblin Mech Rider Sprite Sheet.png" id="1_642v7"]
 [ext_resource type="Script" uid="uid://4owiin7nmeo5" path="res://Character/Mecha/mecha_globin.gd" id="1_ncjhk"]
 
@@ -22,7 +21,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_0tupi"]
 resource_name = "attack"
 length = 0.6
-loop_mode = 2
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -99,16 +97,12 @@ _data = {
 &"run": SubResource("Animation_0akgs")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0akgs"]
+
 [node name="mecha_globin" type="CharacterBody2D" groups=["Mecha", "globin"]]
 z_index = -1
 collision_layer = 2
 script = ExtResource("1_ncjhk")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-12, -35, -7, -20, -10, -9, -9, -4, -4, -17, -2, -19, 5, -19, 8, -5, 11, -12, 11, -19, 6, -22, 12, -35)
-
-[node name="shadow_body" parent="CollisionPolygon2D" instance=ExtResource("1_0akgs")]
-position = Vector2(1, -19)
 
 [node name="anim" type="AnimationPlayer" parent="."]
 root_node = NodePath("../sprite")
@@ -125,3 +119,7 @@ texture = ExtResource("1_642v7")
 hframes = 8
 vframes = 5
 frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -26)
+shape = SubResource("CapsuleShape2D_0akgs")

@@ -1,0 +1,218 @@
+[gd_scene load_steps=10 format=3 uid="uid://b15a0hv2ojjde"]
+
+[ext_resource type="PackedScene" uid="uid://sjgaef1xnf3n" path="res://Character/Mecha/mecha_globin.tscn" id="1_7i2rt"]
+[ext_resource type="PackedScene" uid="uid://crum3x5g8jymw" path="res://Character/Mecha/mecha_globin_r.tscn" id="1_j4xx8"]
+[ext_resource type="Script" uid="uid://ddenqllnhhqbq" path="res://war.gd" id="1_x1ear"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2bf5"]
+size = Vector2(539, 62)
+
+[sub_resource type="Animation" id="Animation_7nkq5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(422, 276)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(485, 277)]
+}
+
+[sub_resource type="Animation" id="Animation_x1ear"]
+resource_name = "idle"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"idle"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"idle"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_4n5he"]
+resource_name = "peace\\"
+length = 3.0
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"run"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"run"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(422, 276), Vector2(757, 276)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(485, 277), Vector2(213, 277)]
+}
+
+[sub_resource type="Animation" id="Animation_j4xx8"]
+resource_name = "war"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x1ear"]
+_data = {
+&"RESET": SubResource("Animation_7nkq5"),
+&"idle": SubResource("Animation_x1ear"),
+&"peace": SubResource("Animation_4n5he"),
+&"war": SubResource("Animation_j4xx8")
+}
+
+[node name="War" type="Node2D"]
+script = ExtResource("1_x1ear")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -220.0
+offset_top = -47.0
+offset_right = -180.0
+offset_bottom = -7.0
+scale = Vector2(42.0895, 19.1336)
+color = Color(0, 0, 0, 1)
+
+[node name="layout" type="Node2D" parent="."]
+
+[node name="floor" type="StaticBody2D" parent="layout"]
+position = Vector2(459, 309)
+
+[node name="ColorRect2" type="ColorRect" parent="layout/floor"]
+z_index = 5
+offset_left = 264.0
+offset_top = -35.0
+offset_right = 304.0
+offset_bottom = -3.0
+rotation = 1.5708
+scale = Vector2(1.56622, 16.8384)
+color = Color(2.55093e-06, 0.407519, 0.538494, 0.694118)
+
+[node name="Camera2D" type="Camera2D" parent="layout/floor/ColorRect2"]
+position = Vector2(-53.6322, 15.8566)
+zoom = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="layout/floor"]
+position = Vector2(-5.5, -3)
+shape = SubResource("RectangleShape2D_w2bf5")
+
+[node name="mecha" type="Node2D" parent="."]
+
+[node name="1" parent="mecha" instance=ExtResource("1_7i2rt")]
+modulate = Color(0.97242, 0.248613, 0.232893, 0.858824)
+z_index = 2
+position = Vector2(422, 276)
+scale = Vector2(0.965083, 0.965083)
+
+[node name="2" parent="mecha" instance=ExtResource("1_j4xx8")]
+modulate = Color(0.796078, 0.164706, 0.164706, 1)
+z_index = 2
+position = Vector2(485, 277)
+
+[node name="mech-anim" type="AnimationPlayer" parent="mecha"]
+libraries = {
+&"": SubResource("AnimationLibrary_x1ear")
+}
+
+[node name="Main_anim" type="AnimationPlayer" parent="."]

@@ -33,5 +33,28 @@ sleepy and llullaby
 	
 	Celeste First Steps - Ambient Cliff Music
 	
-	
-	
+	sleepy 
+	Snowdin Theme → 7, 3, 4, 7
+
+Celeste (Easy) → 3, 7, 1, 6
+Celeste (Ambient) → 1, 6, 3, 7
+
+
+# 🕸️ Creepy Themes
+Lavender Town → 5, 7, 4, 5
+! Silent Hill → 7, 4, 3, 7
+
+
+# ⚔️ War Themes
+Doom Eternal → 3, 7, 1, 6
+Zelda Lullaby → 7, 4, 5, 3
+
+$🕊️ Peace Themes
+To Zanarkand → 5, 2, 3, 7
+Suteki Da Ne → 4, 1, 7, 4
+
+var keys = melodies.keys()	
+var sleepy = keys.slice(0, 3)
+var creepy = keys.slice(3, 6)
+var war = keys.slice(6, 8)
+var peace = keys.slice(8, 12)

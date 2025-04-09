@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://de76fpas8ntmh"
+path="res://.godot/imported/Undertale OST_ 022 - Snowdin Town.mp3-2bc55e591a21740956c03f9149ecdfcc.mp3str"
+
+[deps]
+
+source_file="res://mUSIC/sLEEPY/Undertale OST_ 022 - Snowdin Town.mp3"
+dest_files=["res://.godot/imported/Undertale OST_ 022 - Snowdin Town.mp3-2bc55e591a21740956c03f9149ecdfcc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

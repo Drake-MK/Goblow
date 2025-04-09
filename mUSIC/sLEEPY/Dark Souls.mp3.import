@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://clvgp02a80o0w"
+path="res://.godot/imported/Dark Souls.mp3-64f985be2edb5c84c583398b0a6fb247.mp3str"
+
+[deps]
+
+source_file="res://mUSIC/sLEEPY/Dark Souls.mp3"
+dest_files=["res://.godot/imported/Dark Souls.mp3-64f985be2edb5c84c583398b0a6fb247.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

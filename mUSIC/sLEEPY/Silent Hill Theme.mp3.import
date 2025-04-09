@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://gq7wb62xwd70"
+path="res://.godot/imported/Silent Hill Theme.mp3-aee0e3731ad743c5733c88b9dd57f9db.mp3str"
+
+[deps]
+
+source_file="res://mUSIC/sLEEPY/Silent Hill Theme.mp3"
+dest_files=["res://.godot/imported/Silent Hill Theme.mp3-aee0e3731ad743c5733c88b9dd57f9db.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

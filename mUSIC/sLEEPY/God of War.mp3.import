@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dp2pq4rbo8lma"
+path="res://.godot/imported/God of War.mp3-d103cd3b51c3b3afdd765437000bdb59.mp3str"
+
+[deps]
+
+source_file="res://mUSIC/sLEEPY/God of War.mp3"
+dest_files=["res://.godot/imported/God of War.mp3-d103cd3b51c3b3afdd765437000bdb59.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
