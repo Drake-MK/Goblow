@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://cr8cjxckv0ym"]
+[gd_scene load_steps=42 format=4 uid="uid://cr8cjxckv0ym"]
 
 [ext_resource type="Script" uid="uid://neru72h4i73o" path="res://Character/Main/main.gd" id="1_qrmh7"]
 [ext_resource type="PackedScene" uid="uid://df1hhpq2eex31" path="res://Character/Tank/tank_globin.tscn" id="2_etctc"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://casfdvdqll4dj" path="res://Asset/oak_woods_v1.0/background/background_layer_2.png" id="6_etctc"]
 [ext_resource type="PackedScene" uid="uid://crum3x5g8jymw" path="res://Character/Mecha/mecha_globin_r.tscn" id="7_eg7j1"]
 [ext_resource type="Texture2D" uid="uid://b3hutvcpavop4" path="res://Asset/oak_woods_v1.0/background/background_layer_3.png" id="7_r7coc"]
+[ext_resource type="FontFile" uid="uid://dnr8ebptln5pg" path="res://AVA_Font_1_14/AVA.ttf" id="10_osndk"]
 
 [sub_resource type="Animation" id="Animation_ur4af"]
 resource_name = "idle"
@@ -43,7 +44,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_txgrr"]
 resource_name = "run"
-loop_mode = 1
 step = 0.1
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -799,6 +799,74 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.210689, 0.425004, 0.431058, 1)
 sources/0 = SubResource("TileSetAtlasSource_mmseq")
 
+[sub_resource type="Animation" id="Animation_mmseq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.610115, 0.131545, 0.29346, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ciy6u"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.610115, 0.131545, 0.29346, 1), Color(0.772115, 0.978872, 0.912022, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ojuwe"]
+resource_name = "peace"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.772115, 0.978872, 0.912022, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wju0e"]
+resource_name = "war"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.772115, 0.978872, 0.912022, 1), Color(0.610115, 0.131545, 0.29346, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wiryc"]
+_data = {
+&"RESET": SubResource("Animation_mmseq"),
+&"idle": SubResource("Animation_ciy6u"),
+&"peace": SubResource("Animation_ojuwe"),
+&"war": SubResource("Animation_wju0e")
+}
+
 [sub_resource type="Animation" id="Animation_7nkq5"]
 length = 0.001
 tracks/0/type = "value"
@@ -1001,6 +1069,40 @@ tracks/0/keys = {
 "clips": PackedStringArray("idle"),
 "times": PackedFloat32Array(0)
 }
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tank/right/tank_anim_R")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("idle"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tank/left/tank_anim_L")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("idle"),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Tiles2")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0001),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"idle"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_etctc"]
 resource_name = "at_peace"
@@ -1014,6 +1116,43 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "clips": PackedStringArray("peace"),
 "times": PackedFloat32Array(0)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tank/right/tank_anim_R")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("run"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tank/left/tank_anim_L")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("run"),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Tiles2")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 0.0666667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"peace"
+}, {
+"args": [],
+"method": &"peace"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_d8rlp"]
@@ -1029,6 +1168,40 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "clips": PackedStringArray("war"),
 "times": PackedFloat32Array(0)
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("tank/right/tank_anim_R")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("war"),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("tank/left/tank_anim_L")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("war"),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Tiles2")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"war"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_mkrro"]
@@ -1062,11 +1235,15 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": PackedStringArray("death"),
-"times": PackedFloat32Array(0.0333333)
+"times": PackedFloat32Array(0)
 }
+
+[sub_resource type="Animation" id="Animation_id5dd"]
+length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oan0v"]
 _data = {
+&"RESET": SubResource("Animation_id5dd"),
 &"at_death": SubResource("Animation_mkrro"),
 &"at_idle": SubResource("Animation_r7coc"),
 &"at_peace": SubResource("Animation_etctc"),
@@ -1084,7 +1261,7 @@ zoom = Vector2(3, 3)
 
 [node name="final" type="AudioStreamPlayer2D" parent="."]
 
-[node name="scout" type="Node" parent="."]
+[node name="scout" type="Node2D" parent="."]
 
 [node name="tank" type="Node2D" parent="."]
 
@@ -1117,6 +1294,7 @@ position = Vector2(73, 74)
 libraries = {
 &"": SubResource("AnimationLibrary_bmvpo")
 }
+autoplay = "war"
 
 [node name="Tiles2" type="TileMapLayer" parent="."]
 modulate = Color(0.610115, 0.131545, 0.29346, 1)
@@ -1149,6 +1327,11 @@ position = Vector2(197, 18)
 scale = Vector2(5.00383, 5.00383)
 texture = ExtResource("7_r7coc")
 
+[node name="anim" type="AnimationPlayer" parent="Tiles2"]
+libraries = {
+&"": SubResource("AnimationLibrary_wiryc")
+}
+
 [node name="mecha" type="Node2D" parent="."]
 position = Vector2(-512, -198)
 
@@ -1171,3 +1354,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_oan0v")
 }
 autoplay = "at_war"
+
+[node name="Text" type="Node2D" parent="."]
+
+[node name="intro" type="Label" parent="Text"]
+offset_left = -57.0
+offset_top = -15.0
+offset_right = -17.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("10_osndk")
+text = "Only you "
