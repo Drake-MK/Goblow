@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ci3ythk27d40o"
+path="res://.godot/imported/Zelda Ocarina Of Time - Zelda's Lullaby.mp3-feed2f917b53646dc7964a79b13b1c37.mp3str"
+
+[deps]
+
+source_file="res://mUSIC/sLEEPY/Zelda Ocarina Of Time - Zelda's Lullaby.mp3"
+dest_files=["res://.godot/imported/Zelda Ocarina Of Time - Zelda's Lullaby.mp3-feed2f917b53646dc7964a79b13b1c37.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

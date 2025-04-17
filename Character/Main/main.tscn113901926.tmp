@@ -1,8 +1,7 @@
-[gd_scene load_steps=54 format=4 uid="uid://cr8cjxckv0ym"]
+[gd_scene load_steps=45 format=4 uid="uid://cr8cjxckv0ym"]
 
 [ext_resource type="Script" uid="uid://neru72h4i73o" path="res://Character/Main/main.gd" id="1_qrmh7"]
 [ext_resource type="PackedScene" uid="uid://df1hhpq2eex31" path="res://Character/Tank/tank_globin.tscn" id="2_etctc"]
-[ext_resource type="Script" uid="uid://b2dv3w3dpvjn2" path="res://Character/Main/tank.gd" id="2_mkrro"]
 [ext_resource type="PackedScene" uid="uid://cklwlhchkpl8j" path="res://Character/Tank/tank_globin_l.tscn" id="2_r7coc"]
 [ext_resource type="Texture2D" uid="uid://dw8203e2qa7mn" path="res://Asset/oak_woods_v1.0/oak_woods_tileset.png" id="4_7stb7"]
 [ext_resource type="PackedScene" uid="uid://sjgaef1xnf3n" path="res://Character/Mecha/mecha_globin.tscn" id="4_akbm8"]
@@ -11,14 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://crum3x5g8jymw" path="res://Character/Mecha/mecha_globin_r.tscn" id="7_eg7j1"]
 [ext_resource type="Texture2D" uid="uid://b3hutvcpavop4" path="res://Asset/oak_woods_v1.0/background/background_layer_3.png" id="7_r7coc"]
 [ext_resource type="FontFile" uid="uid://dnr8ebptln5pg" path="res://AVA_Font_1_14/AVA.ttf" id="10_osndk"]
-[ext_resource type="AudioStream" uid="uid://gq7wb62xwd70" path="res://mUSIC/sLEEPY/Silent Hill Theme.mp3" id="12_dokt5"]
-[ext_resource type="AudioStream" uid="uid://bq1cyeb17wtwo" path="res://mUSIC/sLEEPY/Lavender Town.mp3" id="13_ntfgo"]
-[ext_resource type="AudioStream" uid="uid://de76fpas8ntmh" path="res://mUSIC/sLEEPY/Undertale OST_ 022 - Snowdin Town.mp3" id="14_hb8wn"]
-[ext_resource type="AudioStream" uid="uid://ci3ythk27d40o" path="res://mUSIC/sLEEPY/Zelda Ocarina Of Time - Zelda's Lullaby.mp3" id="15_bmvpo"]
-[ext_resource type="AudioStream" uid="uid://dp2pq4rbo8lma" path="res://mUSIC/sLEEPY/God of War.mp3" id="16_id5dd"]
-[ext_resource type="AudioStream" uid="uid://clvgp02a80o0w" path="res://mUSIC/sLEEPY/Dark Souls.mp3" id="17_mmseq"]
-[ext_resource type="AudioStream" uid="uid://d1sfagv0gmkmv" path="res://mUSIC/sLEEPY/Celeste First Steps - Ambient Cliff Music.mp3" id="18_ciy6u"]
-[ext_resource type="Texture2D" uid="uid://bqccnuncmd87w" path="res://restart-png-restart-transparent-background-512.png" id="19_ntfgo"]
 
 [sub_resource type="Animation" id="Animation_2v58l"]
 length = 0.001
@@ -1305,14 +1296,12 @@ position = Vector2(-55, 13)
 zoom = Vector2(3, 3)
 
 [node name="keys" type="AudioStreamPlayer2D" parent="."]
-volume_db = 24.0
 
 [node name="final" type="AudioStreamPlayer2D" parent="."]
 
 [node name="scout" type="Node2D" parent="."]
 
 [node name="tank" type="Node2D" parent="."]
-script = ExtResource("2_mkrro")
 
 [node name="left" type="Node2D" parent="tank"]
 
@@ -1407,7 +1396,6 @@ autoplay = "at_war"
 [node name="Text" type="Node2D" parent="."]
 
 [node name="intro" type="Label" parent="Text"]
-texture_filter = 1
 offset_left = -232.0
 offset_top = -81.0
 offset_right = 160.0
@@ -1425,57 +1413,3 @@ libraries = {
 &"": SubResource("AnimationLibrary_lgq4u")
 }
 autoplay = "intro"
-
-[node name="Timer" type="Timer" parent="."]
-
-[node name="Ult" type="Timer" parent="."]
-
-[node name="thanks" type="Timer" parent="."]
-
-[node name="Music" type="Node2D" parent="."]
-
-[node name="SilentHillTheme" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("12_dokt5")
-volume_db = -10.0
-
-[node name="CelesteFirstSteps-AmbientCliffMusic" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("13_ntfgo")
-volume_db = -10.0
-
-[node name="UndertaleOst022-SnowdinTown" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("14_hb8wn")
-volume_db = -10.0
-
-[node name="ZeldaOcarinaOfTime-Zelda\'sLullaby" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("15_bmvpo")
-volume_db = -10.0
-
-[node name="LavenderTown" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("13_ntfgo")
-volume_db = -10.0
-
-[node name="GodOfWar" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("16_id5dd")
-volume_db = -10.0
-
-[node name="DarkSouls" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("17_mmseq")
-volume_db = -10.0
-
-[node name="CelesteFirstSteps-AmbientCliffMusic2" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("18_ciy6u")
-volume_db = -10.0
-
-[node name="Button" type="Button" parent="."]
-offset_left = 100.0
-offset_top = -82.0
-offset_right = 632.0
-offset_bottom = 438.0
-scale = Vector2(0.0444469, 0.0444469)
-text = "c"
-icon = ExtResource("19_ntfgo")
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Ult" to="." method="_on_ult_timeout"]
-[connection signal="timeout" from="thanks" to="." method="_on_thanks_timeout"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
